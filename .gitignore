@@ -2,6 +2,7 @@
 *.png
 *.tiff
 *.jpeg
+*.tif
 
 #Preetham's pc : My laptop generates a particular folder whernever I use
 #jupyter notebook, so ignoring this folder
