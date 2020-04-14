@@ -3,6 +3,10 @@
 *.tiff
 *.jpeg
 
+#Preetham's pc : My laptop generates a particular folder whernever I use
+#jupyter notebook, so ignoring this folder
+Preetham
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
