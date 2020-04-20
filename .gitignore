@@ -10,6 +10,7 @@ Preetham
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+.ipynb_checkpoints
 *.py[cod]
 *$py.class
 
