@@ -14,3 +14,13 @@ We plan to explore the following techniques to apply the unmixing algorithm to o
   - Graph regularized NMF
   - Constrained NMF
   - Minimum volume constrained NMF*
+  
+Goal 1 : Replicate results from paper
+  
+  Try Principle Component Analysis to get important wavelengths
+  
+  ![PCA_sample_image](https://github.com/mdbresh/HyperUnmixing/blob/master/data/sample_pca.png)
+  
+  Each pixel has features like this :
+
+  ![SAMPLE_SPECTRA](https://github.com/mdbresh/HyperUnmixing/blob/master/data/sample_spectra.png)
