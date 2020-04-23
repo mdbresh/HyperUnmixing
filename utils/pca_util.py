@@ -1,5 +1,10 @@
 from sklearn.decomposition import PCA
 
+def normalize(data):
+    norm_data = data - np.mean(data, axis=0)
+    
+    return norm_data
+
 def get_PC(im, show_plots=True, top_n=3, PC_n=1, top_load_n=1, figsize=(8,9)):
     
     """
@@ -29,6 +34,7 @@ def get_PC(im, show_plots=True, top_n=3, PC_n=1, top_load_n=1, figsize=(8,9)):
     
     #For PCA, each row should be a data point, columns are features
     data = np.reshape(im, (im.shape[0]*im.shape[1], im.shape[2])) #reshaping image - independent pixels
+    data = normalize(data)
     feat_arr = np.arange(750, 750+im.shape[2], 1) #array of features
 
     pca = PCA() #define PCA object
