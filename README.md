@@ -24,3 +24,7 @@ Goal 1 : Replicate results from paper
   Each pixel has features like this :
 
   ![SAMPLE_SPECTRA](https://github.com/mdbresh/HyperUnmixing/blob/master/data/sample_spectra.png)
+  
+## Google Colab
+
+Here is the our google colab page [HyperUnmixing](https://colab.research.google.com/drive/1mzOykuRUsAjyIfyvOFmxHKzTt-8aI0dI)
