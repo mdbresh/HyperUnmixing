@@ -1,7 +1,6 @@
 def Wav_2_Im(im, wn):
 
 	""" 
-
 	Input a 3-dimensional 'image cube' and outputs a normalized slice at one wavenumber.
 
 	Parameters
