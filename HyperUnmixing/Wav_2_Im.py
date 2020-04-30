@@ -5,37 +5,26 @@ def Wav_2_Im(im, wn):
 	Input a 3-dimensional 'image cube' and outputs a normalized slice at one wavenumber.
 
 	Parameters
-
 	----------
-
 	im : array_like image
 		 Input data.
 
 	wn : integer
 		 Integer index value.
 
-
 	Returns
-
 	----------
-
 	slice : ndarray
 			An image the same size as the input, but only 1 slice in the 3rd dimension.
 
-
 	Notes
-
 	----------
-
 	The input image is normalized by individually normalizing each slice in the 3rd dimension. 
 	The normalization scheme is (im_slice - minimum of im_slice) / (maximum of im_slice - minimum of im_slice).
 	There may be a different way to approach the normalization.
 
-
 	Examples
-
 	----------
-
 	>>> image = np.load('image1.npy')
 	>>> image.shape
 		(256, 256, 1128)
@@ -50,7 +39,7 @@ def Wav_2_Im(im, wn):
 
 	"""
 
-	## Set up storage for each normalized slice
+    ## Set up storage for each normalized slice
     normalized = []
     
     ## Set up storage for the entire normalized image
