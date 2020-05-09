@@ -1,4 +1,6 @@
 from sklearn.decomposition import PCA
+import numpy as np
+import matplotlib.pyplot as plt
 
 def normalize(data):
     norm_data = data - np.mean(data, axis=0)
