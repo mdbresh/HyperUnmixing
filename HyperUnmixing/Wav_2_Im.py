@@ -38,31 +38,31 @@ def Wav_2_Im(im, wn):
 
 	"""
 
-    ## Set up storage for each normalized slice
-    normalized = []
-    
-    ## Set up storage for the entire normalized image
-    img_norm = np.empty(image.shape, dtype=np.float32)
-    
-    ## Loop through each slice in the image and normalize it by: (slice - slice min)/(slice max - slice min)
-    for i in np.linspace(0, image.shape[2]-1, image.shape[2]-1).astype(np.int):
-    
-        ## pull out one slice
-        im = image[:,:,i]
-    
-        ## normalize the slice
-        normalized.append((im - np.min(im))/(np.amax(im) - np.min(im)))  
+	## Set up storage for each normalized slice
+	normalized = []
 
-    ## Loop through each slice in the storage array and replace it with the normalized slice
-    for i in np.linspace(0, image.shape[2]-1, image.shape[2]-1).astype(np.int):
-    
-        img_norm[:,:,i] = normalized[i-1]
-    
-    ## Pull out the normalized image at the wavenumber of interest
-    slice = img_norm[:,:,wn-750]
-  
-    
-    return slice
+	## Set up storage for the entire normalized image
+	img_norm = np.empty(im.shape, dtype=np.float32)
+
+	## Loop through each slice in the image and normalize it by: (slice - slice min)/(slice max - slice min)
+	for i in np.linspace(0, im.shape[2]-1, im.shape[2]-1).astype(np.int):
+
+	   ## pull out one slice
+	   image = im[:,:,i]
+
+	   ## normalize the slice
+	   normalized.append((image - np.min(image))/(np.amax(image) - np.min(image)))  
+
+	## Loop through each slice in the storage array and replace it with the normalized slice
+	for i in np.linspace(0, im.shape[2]-1, im.shape[2]-1).astype(np.int):
+
+	   img_norm[:,:,i] = normalized[i-1]
+
+	## Pull out the normalized image at the wavenumber of interest
+	im_slice = img_norm[:,:,wn-750]
+
+
+	return im_slice
 
 
 
