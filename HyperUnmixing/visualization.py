@@ -1,5 +1,7 @@
 import numpy as np
 import pandas as pd
+import ipywidgets as widgets
+import matplotlib.pyplot as plt
 
 from skimage.measure import label, regionprops, regionprops_table
 from skimage.color import label2rgb
@@ -40,8 +42,8 @@ def Wav_2_Im(im, wn):
 
 def AreaFraction(im, norm_im, image_size):
 	'''
-	Input test image, normalized NMF coefficients image, and image size. 
-	Outputs a dictionary of computed properties for regions of interest, 
+	Input test image, normalized NMF coefficients image, and image size.
+	Outputs a dictionary of computed properties for regions of interest,
 	a multidimensional array containing threshold masks, and a list of
 	computed area fractions for the areas of interest in each threshold mask.
 
@@ -99,17 +101,13 @@ def AreaFraction(im, norm_im, image_size):
 
 
 
-import ipywidgets as widgets
-import numpy as np
-import matplotlib.pyplot as plt
-%matplotlib inline
 def interactive_hyperimage(image, w=(750,1877,1)):
 
   '''
-  input: 
+  input:
   image: 3D Hyperspectral image
   w: wavenumbers, which is desired interval
-  format is (starting wavenumber, ending wavenumber, step). Default is full spectrum, which is (750,1128,1) 
+  format is (starting wavenumber, ending wavenumber, step). Default is full spectrum, which is (750,1128,1)
 
   output:
   interactive 2D image of hyperspectral image at desired wavenumber
@@ -120,12 +118,8 @@ def interactive_hyperimage(image, w=(750,1877,1)):
       fig, ax = plt.subplots(figsize=(6,6))
       ax.imshow(image[ :, :,a-750])
       ax.set_title('Wavenumber '+str(a)+' $\mathregular{cm^{-1}}$', fontsize=24)
-      
 
-  
+
+
 
   return widgets.interact(update, a=w)
-
-
-
-
