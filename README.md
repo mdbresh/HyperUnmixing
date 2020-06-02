@@ -1,30 +1,18 @@
 # HyperUnmixing
+
+Photo-induced force microscopy is a tool often used to visualize a variety of materials and how those materials' topographies, absorptions, and emissions behave under different excitation wavelengths.
+
+Analysis of PiFM images relies on major assumptions:
+
+    The ratio of the prepared solutions or samples is maintained post-preparation and during measurement
+    Spectra of individual components can be parsed out of a spectrum of the mixed sample
+
+A variety of techniques have been used to probe these assumptions, including Principal Component Analaysis and Principal Component Regression. These techniques allow us to better understand if intended ratios are maintained, how well mixed samples behave, and how sample preparation or sample interactions might affect spectra.
+
 The goal of this project is to perform unmixing of hyperspectral photo-induced force microscopy images of composite or mixed polymer films with distinct chemical signatures. The major inspiration for this is [Kong *et al.*](https://pubs.acs.org/doi/10.1021/acs.jpclett.8b01003)
 
-We plan to explore the following techniques to apply the unmixing algorithm to other polymer datasets:
-  - Convultional Neural Networks
-    |**Pros** |**Cons**  |
-    |---|:---:|
-    |Spatially correlated | Complex/new |
-    |Other applications explored | Scary! |
-  - Non-negative Matrix Factorization*
+We implemented Non-negative Matrix Factorization (NMF) to accomplish this goal. NMF decomposes the data cube into its weighted coefficient matrices and component spectra. Given a data cube or matrix $X$, NMF supposes that:
 
+<h1><center>$X = WH$</center></h1>
 
-  *There are many varieties of NMF including, but not limited to:
-  - Graph regularized NMF
-  - Constrained NMF
-  - Minimum volume constrained NMF*
-  
-Goal 1 : Replicate results from paper
-  
-  Try Principle Component Analysis to get important wavelengths
-  
-  ![PCA_sample_image](https://github.com/mdbresh/HyperUnmixing/blob/master/data/sample_pca.png)
-  
-  Each pixel has features like this :
-
-  ![SAMPLE_SPECTRA](https://github.com/mdbresh/HyperUnmixing/blob/master/data/sample_spectra.png)
-  
-## Google Colab
-
-Here is the our google colab page [HyperUnmixing](https://colab.research.google.com/drive/1mzOykuRUsAjyIfyvOFmxHKzTt-8aI0dI)
+Given the W and H matrices (the weighted coefficients and component spectra, respectively), we have developed several functions and tools to aid in the processing, analysis, and visualization of how NMF spectrally unmixes PiFM data cubes.
