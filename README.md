@@ -17,4 +17,4 @@ X = WH
 
 Given the W and H matrices (the weighted coefficients and component spectra, respectively), we have developed several functions and tools to aid in the processing, analysis, and visualization of how NMF spectrally unmixes PiFM data cubes.
 
-In order to use these tools, feel free to explore the given Jupyter notebooks (including a final workthrough notebook entitled 20200602_final_presentation.ipynb). We hope to develop these modules into Classes with methods at a later date.
+In order to use these tools, feel free to explore the given Jupyter notebooks (including a final workthrough notebook entitled 20200602_MERGED_presentation_notebook.ipynb). We hope to develop these modules into Classes with methods at a later date.
