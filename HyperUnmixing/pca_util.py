@@ -1,7 +1,7 @@
 from sklearn.decomposition import PCA
 import numpy as np
 import matplotlib.pyplot as plt
-from img_util import avg_spectra
+from .img_util import avg_spectra
 
 def normalize(data):
     """ Normalizes data by shifting origin to mean"""
