@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def normalize(data):
+    """ Normalizes data by shifting origin to mean"""
     norm_data = data - np.mean(data, axis=0)
     
     return norm_data
@@ -76,3 +77,26 @@ def get_PC(im, show_plots=True, top_n=3, PC_n=1, top_load_n=1, figsize=(8,9)):
         ax[1].text(top_feat[i], txt_i, str(round(txt_i,1)), fontsize = 8.5, color = 'black')
 
     return loading_scores
+
+def make_PC_feats(im_x, loading_scores, PC_num=[1]):
+    """
+    Makes single feature using loading scores of PC_num^th PC, by linear combination of features in im_x
+
+    Parameters
+    ----------
+    im_x : image passed as numpy array
+    loading_scores : numpy array with ith row should have loading scores of ith PC.
+    PC_num : if PC_num = n, then nth PC's loading scores will be used to calculate the new feature
+
+    Returns
+    -------
+    out : ndarray
+        A new x array, with PC as feature in a single column
+
+    """
+    new_im_x = np.reshape(np.dot(im_x, loading_scores[PC_num[0]-1]),(-1,1))
+    if len(PC_num)>1:
+        for PC in PC_num[1:]:
+            new_im_x = np.hstack([new_im_x, np.reshape(np.dot(im_x, loading_scores[PC-1]),(-1,1))])
+
+    return new_im_x
